@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>React-isomorphic-boilerplate by drd</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>React-isomorphic-boilerplate</h1>
+        <p>A great place to start your isomorphic React applications</p>
+
+        <p class="view"><a href="https://github.com/drd/react-isomorphic-boilerplate">View the Project on GitHub <small>drd/react-isomorphic-boilerplate</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/drd/react-isomorphic-boilerplate/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/drd/react-isomorphic-boilerplate/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/drd/react-isomorphic-boilerplate">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="react-isomorphic-hot-loading-boilerplate" class="anchor" href="#react-isomorphic-hot-loading-boilerplate" aria-hidden="true"><span class="octicon octicon-link"></span></a>React Isomorphic Hot-Loading Boilerplate</h1>
+
+<p>With ES6/7 support and a shared client/server routing table</p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>It might seem like I'm striving for full buzzword compliance. In fact, I just want a
+development environment in which I can be productive and happy. I'm well on the road
+to getting there, and I want to share that with you. If you make it better, please do
+share!</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<h3>
+<a id="isomorphic-react-rendering" class="anchor" href="#isomorphic-react-rendering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Isomorphic React Rendering</h3>
+
+<p>You get the full benefits of React on the client side while still having the performance
+and SEO benefits of server-side rendering. You also get maintainability benefits by
+reducing the overall size of your code base, and if you adhere to the React philosophy
+you likely design a better application as well.</p>
+
+<h3>
+<a id="smart-asset-bundling-with-hot-module-replacement" class="anchor" href="#smart-asset-bundling-with-hot-module-replacement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smart asset bundling with Hot Module Replacement</h3>
+
+<p>Webpack is the all-singing all-dancing asset bundler, though it can be quite daunting
+to understand. Much of the hard work has already been done for you here, so you can code
+from the beginning while watching your JSX and CSS changes reflected in the browser with
+no reloads (not even an automatic reload!)</p>
+
+<h3>
+<a id="the-javascript-of-tomorrow-today" class="anchor" href="#the-javascript-of-tomorrow-today" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Javascript of Tomorrow, Today</h3>
+
+<p>Using the fabulous 6to5 transpiler on the server and client, you can write generators,
+use the new <code>class</code> syntax, arrow functions, and more. Using the <code>module.extensions</code> API
+obviates the need for any compilation step in Node, too. Additionally, if you're too
+impatient to <code>await</code>, I've also packaged up versions of <code>node-jsx</code> and <code>jsx-loader</code> which
+allow you to use ES7 async functions.</p>
+
+<h3>
+<a id="shared-clientserver-routing-table-courtesy-of-react-router" class="anchor" href="#shared-clientserver-routing-table-courtesy-of-react-router" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared client/server routing table, courtesy of React Router</h3>
+
+<p>Write your web application routes once, and use the excellent features available with
+React Router.</p>
+
+<h3>
+<a id="debugging" class="anchor" href="#debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging</h3>
+
+<p>Ships with convenient node-inspector support. Also, check out the
+<a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React DevTools for Chrome</a> if you haven't tried them yet.</p>
+
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>To make everything work, this assumes you have nginx in <code>$PATH</code>. To install you have
+<a href="http://wiki.nginx.org/Install">several options</a> although no mention is made of Mac OS X.
+I personally install mine with <a href="http://brew.sh">homebrew</a>.</p>
+
+<p>Beyond that, all the dependencies are just an <code>npm install</code> away.</p>
+
+<h3>
+<a id="running" class="anchor" href="#running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running</h3>
+
+<p>There are 3 processes you need to run. For maximum debuggability, I generally run them
+each in a different tab / tmux pane. The separate invocations are:</p>
+
+<pre><code>npm run-script nginx
+npm run-script webpack
+npm start
+</code></pre>
+
+<p>If you just want to run everything in one shell, you can:</p>
+
+<pre><code>npm run-script everything
+</code></pre>
+
+<p>Once you've got it all running, visit http://localhost:3000</p>
+
+<h3>
+<a id="debugging-1" class="anchor" href="#debugging-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging</h3>
+
+<p>If your application is running in the same environment as your web browser (i.e., not on
+a VM or a remote host), you can debug your server using node-inspector:</p>
+
+<p><code>npm run-script debug</code></p>
+
+<p>This will launch your default browser pointed at the node-inspector interface for the
+server process.</p>
+
+<p>If it's not on your local computer, you still run the server but less conveniently:</p>
+
+<p><code>node_modules/.bin/node-inspector server/server.js</code></p>
+
+<p>Then you'll need to hit port 5858 on the remote server/VM, which may or may not be
+available depending on firewalls.</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Jest integration</li>
+<li>configuration management</li>
+<li>use extract-text-plugin in production mode for css</li>
+<li>a flux example</li>
+<li>i18n</li>
+<li>test node v0.12.0, io.js compatibility</li>
+</ul>
+
+<h2>
+<a id="fixme" class="anchor" href="#fixme" aria-hidden="true"><span class="octicon octicon-link"></span></a>FIXME</h2>
+
+<ul>
+<li>vendor script is downloading twice</li>
+</ul>
+
+<h2>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>NOTES</h2>
+
+<ul>
+<li>react-router is emitting billions of warnings on react-0.13-beta.1, see <a href="https://github.com/rackt/react-router/issues/638">rackt/react-router#638</a>
+</li>
+</ul>
+
+<h2>
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h2>
+
+<ul>
+<li><a href="https://github.com/gpbl/isomorphic-react-template">https://github.com/gpbl/isomorphic-react-template</a></li>
+<li><a href="https://github.com/ndreckshage/isomorphic">https://github.com/ndreckshage/isomorphic</a></li>
+<li>so many more</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/drd">drd</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
