@@ -108,6 +108,7 @@ available depending on firewalls.
 
 ## NOTES
 
+- depending on your module structure, you may have to [opt-in to hot loading](https://github.com/gaearon/react-hot-loader/blob/master/docs/README.md#migrating-to-10)
 - react-router is emitting billions of warnings on react-0.13-beta.1, see [rackt/react-router#638](https://github.com/rackt/react-router/issues/638)
 
 

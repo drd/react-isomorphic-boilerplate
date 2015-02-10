@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// now with react-hot-loader 1.x, you can also hot-load ES6 classes
 class Welcome {
     render() {
         return (
