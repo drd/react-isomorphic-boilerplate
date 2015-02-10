@@ -7,10 +7,11 @@ var App = React.createClass({
         return (
             <div id="content">
                 <section id="title">
-                    <h1>welcome</h1>
+                    <h1>Application</h1>
                 </section>
                 <nav>
                     <ul>
+                        <li><Link to="index">Welcome</Link></li>
                         <li><Link to="page-1">Page 1</Link></li>
                         <li><Link to="page-2">Page 2</Link></li>
                     </ul>

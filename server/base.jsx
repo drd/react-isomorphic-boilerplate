@@ -11,7 +11,7 @@ var Base = React.createClass({
                 </head>
                 <body>
                     <div id="all" dangerouslySetInnerHTML={{__html: this.props.markup}}/>
-                    <script dangerouslySetInnerHTML={{__html: this.props.posts}}></script>
+                    <script dangerouslySetInnerHTML={{__html: this.props.data}}></script>
                     <script src="/js/vendor.js"></script>
                     <script src="/js/client.js"></script>
                 </body>

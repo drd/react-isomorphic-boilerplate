@@ -77,3 +77,5 @@ nav li:last-of-type {
   h1 { font-size: 3em; }
   article h1 { font-size: 2em; }
 }
+
+a.active { opacity: 0.5; }

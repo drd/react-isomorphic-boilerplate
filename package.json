@@ -24,7 +24,8 @@
   "scripts": {
     "nginx": "nginx -c $(pwd)/nginx.conf",
     "start": "./node_modules/.bin/nodemon -w app -w server -e js,jsx -V -d 2 server/server.js",
-    "webpack": "node ./server/webpack.js",
-    "everything": "(npm run-script nginx & npm run-script webpack & npm start &)"
+    "webpack": "./node_modules/.bin/nodemon -w webpack.config -V -d 2 server/webpack.js",
+    "everything": "(npm run-script nginx & npm run-script webpack & npm start &)",
+    "debug": "./node_modules/.bin/node-debug server/server.js"  
   }
 }

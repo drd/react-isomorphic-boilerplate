@@ -40,6 +40,11 @@ allow you to use ES7 async functions.
 Write your web application routes once, and use the excellent features available with
 React Router.
 
+### Debugging
+
+Ships with convenient node-inspector support. Also, check out the
+[React DevTools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) if you haven't tried them yet.
+
 
 ## Setup
 
@@ -66,17 +71,39 @@ If you just want to run everything in one shell, you can:
 npm run-script everything
 ```
 
+Once you've got it all running, visit http://localhost:3000
+
 ### Debugging
 
-If your application is running in the same environment as your web browser, you
+If your application is running in the same environment as your web browser (i.e., not on
+a VM or a remote host), you can debug your server using node-inspector:
+
+```npm run-script debug```
+
+This will launch your default browser pointed at the node-inspector interface for the
+server process.
+
+If it's not on your local computer, you still run the server but less conveniently:
+
+```node_modules/.bin/node-inspector server/server.js```
+
+Then you'll need to hit port 5858 on the remote server/VM, which may or may not be
+available depending on firewalls.
+
 
 ## TODO
 
 - Jest integration
-- a flux example
 - configuration management
-- upgrade react-hot-loader to support ES6 classes?
+- use extract-text-plugin in production mode for css
+- a flux example
 - i18n
+- test node v0.12.0, io.js compatibility
+
+
+## FIXME
+
+- vendor script is downloading twice
 
 
 ## NOTES

@@ -23,9 +23,6 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
-    server: {
-	port: 3000
-    },
     resolve: {
         // Look directly in app dir for modules
         root: __dirname + '/app',

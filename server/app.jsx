@@ -16,11 +16,14 @@ function globalScriptAssignment(name, value) {
 function handleRequest(req, res, next) {
     Router.run(Routes, req.path, async (Handler, state) => {
         try {
+            // you might want to gather your (potentially nested) data dependencies
+            // here, by iterating over the state array.
             let data = {}
+
             // generate the hydrateable application markup
             var appMarkup = React.renderToString(<Handler {...data}/>);
             var markup = React.renderToStaticMarkup(
-                <Base posts={globalScriptAssignment('__data__', data)} markup={appMarkup} />
+                <Base data={globalScriptAssignment('__data__', data)} markup={appMarkup} />
             )
             res.end(markup);
         } catch(e) {
