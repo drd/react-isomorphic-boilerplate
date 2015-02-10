@@ -81,7 +81,7 @@ If your application is running in the same environment as your web browser, you
 
 ## NOTES
 
-- react-router is emitting billions of warnings on react-0.13-beta.1, see rackt/react-router#638
+- react-router is emitting billions of warnings on react-0.13-beta.1, see [rackt/react-router#638](https://github.com/rackt/react-router/issues/638)
 
 
 ## See Also
