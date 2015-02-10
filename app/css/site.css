@@ -1,0 +1,79 @@
+body {
+  background: #ddd url(/public/img/lemon-drops.jpg);
+  font-family: 'Crimson Text', serif;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+
+  font-size: 2em;
+}
+
+article h1 { 
+  border-bottom: thin solid black;
+  margin-top: 3em;
+  font-size: 1.5em; 
+}
+
+time { color: #999; text-align: center; }
+
+#content img {
+  max-width: 100%;
+}
+
+#content img.inline {
+  margin: 1em;
+}
+
+#content img.inline.right {
+  float: right;
+  margin-right: 0;
+}
+
+#content img.inline.left {
+  float: left;
+  margin-left: 0;
+}
+
+#content img.inline.portrait {
+  width: 33%;
+}
+
+#content img.inline.landscape {
+  width: 50%;
+}
+
+#content video,
+#content audio { width: 100%; }
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline;
+  margin-right: .5em;
+}
+
+nav li:last-of-type {
+  margin-right: 0;
+}
+
+@media all and (max-width: 520px) {
+  h1 { font-size: 3em; }
+  article h1 { font-size: 2em; }
+}
