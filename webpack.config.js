@@ -1,12 +1,53 @@
+var chalk = require('chalk');
 var webpack = require('webpack');
 
-module.exports = {
-    context: __dirname + '/app',
-    entry: {
+var environments = {
+    production: {
+        vendor: ['react', 'react-router'],
+        plugins: [
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+                filename: 'vendor.js',
+                minChunks: Infinity
+            })
+        ]
+    },
+
+    development: {
         vendor: ['webpack-dev-server/client?http://localhost:3000',
                  'webpack/hot/dev-server',
                  'react',
                  'react-router'],
+        plugins: [
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+                filename: 'vendor.js',
+                minChunks: Infinity
+            }),
+            new webpack.HotModuleReplacementPlugin()
+        ],
+    }
+};
+
+function env(key) {
+    var result = undefined;
+    try {
+        var env = process.env.NODE_ENV || 'development';
+        result = environments[env][key];
+        if (result === undefined) {
+            console.warn(chalk.yellow('Undefined environment key %s in %s', key, env));
+        }
+        return result;
+    } catch(e) {
+        console.error(chalk.red('Exception occurred retrieving environment config key %s in %s', key, env));
+        process.exit(1);
+    }
+}
+
+module.exports = {
+    context: __dirname + '/app',
+    entry: {
+        vendor: env('vendor'),
         app: './client.jsx'
     },
     output: {
@@ -15,14 +56,7 @@ module.exports = {
         publicPath: '/js'
     },
     devtool: 'eval',
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.js',
-            minChunks: Infinity
-        }),
-        new webpack.HotModuleReplacementPlugin()
-    ],
+    plugins: env('plugins'),
     resolve: {
         // Look directly in app dir for modules
         root: __dirname + '/app',

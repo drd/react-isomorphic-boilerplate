@@ -90,6 +90,12 @@ If it's not on your local computer, you still run the server but less convenient
 Then you'll need to hit port 5858 on the remote server/VM, which may or may not be
 available depending on firewalls.
 
+### Bundling
+
+Once your application is ready to go, you can create all the bundled and precompiled
+javascript files by executing `npm run-script bundle`. This will execute with
+`NODE_ENV=production`, toggling the environmental switches in `webpack.config.js`.
+
 
 ## TODO
 
