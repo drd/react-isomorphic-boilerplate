@@ -1,9 +1,6 @@
 "use strict";
 
 var chalk = require('chalk');
-
-require('node-jsx').install()
-
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('../webpack.config');

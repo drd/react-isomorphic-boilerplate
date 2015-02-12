@@ -6,12 +6,13 @@ var Base = React.createClass({
         return (
             <html>
                 <head>
-                    <title>compassing.net</title>
+                    <title>your awesome application</title>
                     <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic" rel="stylesheet" type="text/css"/>
                 </head>
                 <body>
                     <div id="all" dangerouslySetInnerHTML={{__html: this.props.markup}}/>
                     <script dangerouslySetInnerHTML={{__html: this.props.data}}></script>
+                    {/* any bundles specified in webpack.config.js must be added here in proper order */}
                     <script src="/js/vendor.js"></script>
                     <script src="/js/client.js"></script>
                 </body>

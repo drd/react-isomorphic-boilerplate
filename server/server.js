@@ -1,8 +1,8 @@
-var chalk = require('chalk');
-
+// requiring .js files will be processed with 6to5
 require('6to5/register')({experimental: true});
 var to5 = require('6to5');
 
+// configure node-jsx to post-process .jsx files with 6to5
 require('node-jsx').install({
     extension: '.jsx',
     postTransform: function(f, o) {
@@ -10,11 +10,14 @@ require('node-jsx').install({
     }
 });
 
+
+var chalk = require('chalk');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var app = require('./app');
+
 
 start();
 

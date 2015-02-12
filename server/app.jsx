@@ -14,6 +14,7 @@ function globalScriptAssignment(name, value) {
 
 
 function handleRequest(req, res, next) {
+    // Resolve the current route using `req.path`
     Router.run(Routes, req.path, async (Handler, state) => {
         try {
             // you might want to gather your (potentially nested) data dependencies
@@ -22,6 +23,8 @@ function handleRequest(req, res, next) {
 
             // generate the hydrateable application markup
             var appMarkup = React.renderToString(<Handler {...data}/>);
+
+            // and insert it into the HTML layout
             var markup = React.renderToStaticMarkup(
                 <Base data={globalScriptAssignment('__data__', data)} markup={appMarkup} />
             )
