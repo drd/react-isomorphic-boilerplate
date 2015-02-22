@@ -73,6 +73,12 @@ npm run-script everything
 
 Once you've got it all running, visit http://localhost:3000
 
+#### Note regarding nginx
+
+I've seen more than once where a homebrew-installed nginx will die trying to create a
+`client_body_temp` directory; issuing `mkdir -p /usr/local/var/run/nginx` will create
+the hierarchy needed.
+
 ### Debugging
 
 If your application is running in the same environment as your web browser (i.e., not on
