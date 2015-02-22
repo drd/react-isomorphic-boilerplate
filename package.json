@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "6to5": "^3.5.3",
-    "6to5-loader": "^3.0.0",
+    "babel-core": "^4.4.5",
+    "babel-loader": "^4.0.0",
     "body-parser": "^1.10.11",
     "cors": "^2.5.3",
     "css-loader": "^0.9.1",
