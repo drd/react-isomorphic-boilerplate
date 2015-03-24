@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "babel-core": "^4.4.5",
+    "babel": "^4.7.16",
     "babel-loader": "^4.0.0",
     "body-parser": "^1.10.11",
     "cors": "^2.5.3",
@@ -8,7 +8,7 @@
     "express": "^4.11.2",
     "jsx-loader": "drd/jsx-loader#e6e082d8820e4eb5b1c105a4ce5435f1a5836819",
     "node-jsx": "drd/node-jsx#7ec0b8e542f32662872e76cbaeac88083b566d0f",
-    "react": "0.13.0-beta.1",
+    "react": "^0.13.0",
     "react-router": "drd/react-router#master",
     "safer-stringify": "0.0.1",
     "style-loader": "^0.8.3",
