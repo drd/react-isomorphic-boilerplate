@@ -1,8 +1,8 @@
-// requiring .js files will be processed with 6to5
-require('6to5/register')({experimental: true});
-var to5 = require('6to5');
+// requiring .js files will be processed with babel
+require('babel/register')({experimental: true});
+var to5 = require('babel');
 
-// configure node-jsx to post-process .jsx files with 6to5
+// configure node-jsx to post-process .jsx files with babel 
 require('node-jsx').install({
     extension: '.jsx',
     postTransform: function(f, o) {
