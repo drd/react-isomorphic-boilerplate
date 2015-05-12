@@ -13,7 +13,7 @@ class Clusters extends React.Component {
     }
 
     renderCluster(cluster, key) {
-        return <li key={key}>
+        return !cluster.isSpam && <li key={key}>
             <Link to="cluster" params={{id: key}}>
                 {cluster.length} messages from {senders(cluster)} senders
             </Link>

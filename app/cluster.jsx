@@ -1,6 +1,6 @@
 import _ from 'underscore';
 import React from 'react';
-import {Pager, PageItem, ListGroup, ListGroupItem, Well} from 'react-bootstrap';
+import {Button, ButtonGroup, Glyphicon, Pager, PageItem, ListGroup, ListGroupItem, Well} from 'react-bootstrap';
 
 import {distance} from './utils';
 
@@ -29,16 +29,27 @@ class Cluster extends React.Component {
             .value();
     }
 
+    spam() {
+        this.cluster().isSpam = true;
+        this.context.transitionTo('index');
+    }
+
     render() {
         var clusterHash = this.clusterId();
         return <div>
+            <ButtonGroup>
+                <Button onClick={this.spam.bind(this)}><Glyphicon glyph='flag'/> Spam</Button>
+                <Button onClick={this.ok}><Glyphicon glyph='ok'/> OK</Button>
+                <Button onClick={this.refresh}><Glyphicon glyph='refresh'/> Refresh</Button>
+            </ButtonGroup>
             {_.map(this.subClusters(), (subCluster, hash) => <SubCluster {...{subCluster, clusterHash, hash}} />)}
         </div>;
     }
 }
 
 Cluster.contextTypes = {
-    routeHandlers: React.PropTypes.array
+    routeHandlers: React.PropTypes.array,
+    transitionTo: React.PropTypes.func.isRequired
 };
 
 
@@ -65,9 +76,10 @@ class SubCluster extends React.Component {
     }
 
     render() {
+        var sentOn = new Date(this.message().creation_date);
         return <ListGroup key={this.props.hash}>
             <ListGroupItem>Message {this.state.messageIndex + 1} of {this.props.subCluster.length}</ListGroupItem>
-            <ListGroupItem>{new Date(this.message().creation_date).toDateString()}</ListGroupItem>
+            <ListGroupItem>{sentOn.toString()}</ListGroupItem>
             <ListGroupItem><strong>From:</strong> {this.message().name}</ListGroupItem>
             <ListGroupItem><strong>Similarity:</strong> {distance(this.props.clusterHash, this.props.hash).toPrecision(3)}%</ListGroupItem>
             <ListGroupItem><pre>{this.message().description}</pre></ListGroupItem>
