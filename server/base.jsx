@@ -7,6 +7,8 @@ var Base = React.createClass({
             <html>
                 <head>
                     <title>your awesome application</title>
+                    <meta charset="utf-8" />
+                    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
                 </head>
                 <body>
                     <div id="all" dangerouslySetInnerHTML={{__html: this.props.markup}}/>

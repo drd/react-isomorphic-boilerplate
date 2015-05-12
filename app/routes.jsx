@@ -2,16 +2,15 @@ var React = require('react');
 import {Route, DefaultRoute, NotFoundRoute} from 'react-router';
 
 import App from './app';
-import Page1 from './page1';
-import Page2 from './page2';
-import Welcome from './welcome';
+import Cluster from './cluster';
+import Clusters from './clusters';
 
 
 var Routes = (
-    <Route name="App" handler={App} path="/">
-        <DefaultRoute name="index" handler={Welcome}/>
-        <Route name="page-1" handler={Page1}/>
-        <Route name="page-2" handler={Page2}/>
+    <Route name="App" handler={App}>
+        <Route name="index" path="/" handler={Clusters}>
+            <Route name="cluster" path="cluster/:id" handler={Cluster}/>
+        </Route>
     </Route>
 );
 

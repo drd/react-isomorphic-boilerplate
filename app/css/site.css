@@ -6,8 +6,6 @@ body {
 }
 
 #content {
-  width: 90%;
-  max-width: 800px;
   margin: 0 auto;
   padding: 1em;
   background-color: white;
@@ -21,10 +19,10 @@ h1 {
   font-size: 2em;
 }
 
-article h1 { 
+article h1 {
   border-bottom: thin solid black;
   margin-top: 3em;
-  font-size: 1.5em; 
+  font-size: 1.5em;
 }
 
 time { color: #999; text-align: center; }

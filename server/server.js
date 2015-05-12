@@ -1,12 +1,13 @@
 // requiring .js files will be processed with babel
-require('babel/register')({experimental: true});
-var to5 = require('babel');
+require('babel/register')({optional: ["es7.asyncFunctions"]});
 
-// configure node-jsx to post-process .jsx files with babel 
+var babel = require('babel');
+
+// configure node-jsx to post-process .jsx files with babel
 require('node-jsx').install({
     extension: '.jsx',
     postTransform: function(f, o) {
-        return to5.transform(f, {experimental: true}).code;
+        return babel.transform(f, {stage: 1}).code;
     }
 });
 
@@ -17,6 +18,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var app = require('./app');
+var api = require('./api');
 
 
 start();
@@ -26,6 +28,7 @@ function start() {
     var server = express();
     server.use(bodyParser.json());
     server.use(cors());
+    server.use('/api', api);
     server.use(app);
     server.listen(process.env['LISTEN_PORT'] || 3001, function(err, result) {
         if (err) return console.log(err);

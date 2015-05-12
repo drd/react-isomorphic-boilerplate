@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var chalk = require('chalk');
 
 var React = require('react');
@@ -6,6 +7,8 @@ var saferStringify = require('safer-stringify');
 
 var Base = require('./base');
 var Routes = require('../app/routes');
+
+var clusters = require("../data/clusters");
 
 
 function globalScriptAssignment(name, value) {
@@ -19,10 +22,10 @@ function handleRequest(req, res, next) {
         try {
             // you might want to gather your (potentially nested) data dependencies
             // here, by iterating over the state array.
-            let data = {}
+            let data = clusters;
 
             // generate the hydrateable application markup
-            var appMarkup = React.renderToString(<Handler {...data}/>);
+            var appMarkup = React.renderToString(<Handler clusters={data}/>);
 
             // and insert it into the HTML layout
             var markup = React.renderToStaticMarkup(
