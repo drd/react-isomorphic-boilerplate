@@ -6,7 +6,7 @@ var App = React.createClass({
         return (
             <div id="content">
                 <section id="title">
-                    <h1>Scammer Hammer {String.fromCharCode(0x0262D)}</h1>
+                    <h1>Scammer Hammer &#9773;</h1>
                 </section>
                 <section id="content">
                     <RouteHandler {...this.props} />

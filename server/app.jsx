@@ -31,6 +31,7 @@ function handleRequest(req, res, next) {
             var markup = React.renderToStaticMarkup(
                 <Base data={globalScriptAssignment('__data__', data)} markup={appMarkup} />
             )
+            res.set({'content-type': 'text/html; charset=utf-8'});
             res.end(markup);
         } catch(e) {
             console.error(chalk.red(e.message));
