@@ -120,7 +120,8 @@ class SubCluster extends React.Component {
         return <ListGroup key={this.props.hash}>
             <ListGroupItem>Message {this.state.messageIndex + 1} of {this.props.subCluster.length}</ListGroupItem>
             <ListGroupItem>{sentOn.toString()}</ListGroupItem>
-            <ListGroupItem><strong>From:</strong> {this.message().name}</ListGroupItem>
+            <ListGroupItem><strong>Sender:</strong> {this.message().sender}</ListGroupItem>
+            <ListGroupItem><strong>Subject:</strong> {this.message().name}</ListGroupItem>
             <ListGroupItem><strong>Similarity:</strong> {distance(this.props.clusterHash, this.props.hash).toPrecision(3)}%</ListGroupItem>
             <ListGroupItem><pre>{this.message().description}</pre></ListGroupItem>
             <ListGroupItem>
