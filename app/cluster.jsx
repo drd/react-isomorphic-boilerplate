@@ -1,6 +1,6 @@
 import _ from 'underscore';
 import React from 'react';
-import {Button, ButtonGroup, Glyphicon, Pager, PageItem, ListGroup, ListGroupItem, Well} from 'react-bootstrap';
+import {Table, Button, ButtonGroup, Glyphicon, Pager, PageItem, ListGroup, ListGroupItem, Well} from 'react-bootstrap';
 
 import {distance} from './utils';
 
@@ -9,6 +9,12 @@ class Cluster extends React.Component {
     static dataDependency(params, model) {
         console.log(params, model);
         return model.cluster(params.id);
+    }
+
+    componentWillUpdate() {
+        if (Math.random() > 0.7) {
+            this.cluster().showHistory = true;
+        }
     }
 
     clusterId() {
@@ -42,6 +48,7 @@ class Cluster extends React.Component {
                 <Button onClick={this.ok}><Glyphicon glyph='ok'/> OK</Button>
                 <Button onClick={this.refresh}><Glyphicon glyph='refresh'/> Refresh</Button>
             </ButtonGroup>
+            {this.cluster().showHistory && <History />}
             {_.map(this.subClusters(), (subCluster, hash) => <SubCluster {...{subCluster, clusterHash, hash}} />)}
         </div>;
     }
@@ -51,6 +58,39 @@ Cluster.contextTypes = {
     routeHandlers: React.PropTypes.array,
     transitionTo: React.PropTypes.func.isRequired
 };
+
+
+class History extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            messages: Math.ceil(Math.random() * 50),
+            senders: Math.ceil(Math.random() * 5),
+            similarity: Math.ceil(Math.random() * 20) + 80
+        };
+    }
+
+    render() {
+        return <Table bordered condensed hover>
+            <thead>
+                <tr><th colSpan={2}>History</th></tr>
+            </thead>
+            <tbody>
+                <tr><td colSpan={2}>
+                    <a href='#'>{this.state.messages} messages</a> sent by <a href='#'>{this.state.senders} senders</a>
+                </td></tr>
+                <tr>
+                    <td>Similarity: {this.state.similarity}%</td>
+                    <td>OK'd by <a href='#'>Matt</a></td>
+                </tr>
+                <tr>
+                    <td>Read messages</td>
+                    <td>Date: 2013</td>
+                </tr>
+            </tbody>
+        </Table>
+    }
+}
 
 
 class SubCluster extends React.Component {
